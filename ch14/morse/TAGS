@@ -1,0 +1,11 @@
+
+./Setup.hs,15
+main main1,2
+
+./src/Main.hs,52
+module Main Main0,1
+main main2,3
+main main3,4
+
+./src/Morse.hs,24
+type Morse Morse11,12
