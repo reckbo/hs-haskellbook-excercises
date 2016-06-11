@@ -2,10 +2,39 @@
 ./Setup.hs,15
 main main1,2
 
-./src/Main.hs,52
+./src/Main.hs,211
 module Main Main0,1
-main main2,3
-main main3,4
+convertToMorse convertToMorse9,10
+convertToMorse convertToMorse10,11
+convertFromMorse convertFromMorse25,26
+convertFromMorse convertFromMorse26,27
+main main42,43
+main main43,44
 
-./src/Morse.hs,24
+./src/Morse.hs,358
 type Morse Morse11,12
+letterToMorse letterToMorse13,14
+letterToMorse letterToMorse14,15
+morseToLetter morseToLetter53,54
+morseToLetter morseToLetter54,55
+charToMorse charToMorse56,57
+charToMorse charToMorse57,58
+stringToMorse stringToMorse59,60
+stringToMorse stringToMorse60,61
+morseToChar morseToChar62,63
+morseToChar morseToChar63,64
+
+./tests/tests.hs,383
+module Main Main0,1
+allowedChars allowedChars5,6
+allowedChars allowedChars6,7
+allowedMorse allowedMorse8,9
+allowedMorse allowedMorse9,10
+charGen charGen11,12
+charGen charGen12,13
+morseGen morseGen14,15
+morseGen morseGen15,16
+prop_thereAndBackAgain prop_thereAndBackAgain17,18
+prop_thereAndBackAgain prop_thereAndBackAgain18,19
+main main22,23
+main main23,24

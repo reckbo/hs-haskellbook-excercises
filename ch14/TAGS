@@ -1,7 +1,225 @@
 
-./Addition.hs,114
+./addition/.stack-work/dist/x86_64-osx/Cabal-1.22.5.0/build/autogen/Paths_addition.hs,966
+module Paths_addition Paths_addition0,1
+catchIO catchIO11,12
+catchIO catchIO12,13
+version version14,15
+version version15,16
+bindir, libdir, datadir, libexecdir, sysconfdir sysconfdir16,17
+bindir, libdir, datadir, libexecdir,libexecdir16,17
+bindir, libdir, datadir,datadir16,17
+bindir, libdir,libdir16,17
+bindir,bindir16,17
+bindir bindir18,19
+libdir libdir19,20
+datadir datadir20,21
+libexecdir libexecdir21,22
+sysconfdir sysconfdir22,23
+getBinDir, getLibDir, getDataDir, getLibexecDir, getSysconfDir getSysconfDir24,25
+getBinDir, getLibDir, getDataDir, getLibexecDir,getLibexecDir24,25
+getBinDir, getLibDir, getDataDir,getDataDir24,25
+getBinDir, getLibDir,getLibDir24,25
+getBinDir,getBinDir24,25
+getBinDir getBinDir25,26
+getLibDir getLibDir26,27
+getDataDir getDataDir27,28
+getLibexecDir getLibexecDir28,29
+getSysconfDir getSysconfDir29,30
+getDataFileName getDataFileName31,32
+getDataFileName getDataFileName32,33
+
+./addition/Addition.hs,667
 module Addition Addition0,1
-dividedBy dividedBy4,5
-dividedBy dividedBy5,6
-main main10,11
-main main11,12
+genBool genBool5,6
+genBool genBool6,7
+genBool' genBool'8,9
+genBool' genBool'9,10
+genOrdering genOrdering11,12
+genOrdering genOrdering12,13
+genChar genChar14,15
+genChar genChar15,16
+genTuple genTuple17,18
+genTuple genTuple18,19
+genThreeple genThreeple22,23
+genThreeple genThreeple23,24
+dividedBy dividedBy28,29
+dividedBy dividedBy29,30
+genEither genEither34,35
+genEither genEither35,36
+genMaybe genMaybe40,41
+genMaybe genMaybe41,42
+prop_additionGreater prop_additionGreater45,46
+prop_additionGreater prop_additionGreater46,47
+main main48,49
+main main49,50
+runQc runQc58,59
+runQc runQc59,60
+
+./excercises-gentypes.hs,199
+data Fool Fool3,4
+data Fool = Fulse Fulse3,4
+data Fool = Fulse | FrueFrue3,4
+fulseGen fulseGen6,7
+fulseGen fulseGen7,8
+frueGen frueGen9,10
+frueGen frueGen10,11
+instance instance12,13
+
+./excercises-hangman.hs,74
+fillInCharacter fillInCharacter2,3
+fillInCharacter fillInCharacter3,4
+
+./exercises.hs,1321
+half half4,5
+halfIdentity halfIdentity5,6
+listOrdered listOrdered9,10
+listOrdered listOrdered10,11
+newtype SortedList SortedList15,16
+newtype SortedList a = SortedList SortedList15,16
+instance instance18,19
+sortedProperty sortedProperty23,24
+sortedProperty sortedProperty24,25
+plusAssociative plusAssociative26,27
+plusCommutative plusCommutative27,28
+multAssociative multAssociative29,30
+multCommutative multCommutative30,31
+quotRemLaw quotRemLaw32,33
+divModLaw divModLaw34,35
+expCommutative expCommutative37,38
+expAssociative expAssociative38,39
+reverseEquals reverseEquals40,41
+reverseEquals reverseEquals41,42
+prop_dollar prop_dollar43,44
+prop_dollar prop_dollar44,45
+prop_compose prop_compose47,48
+prop_compose prop_compose48,49
+prop_concat prop_concat52,53
+prop_concat prop_concat53,54
+prop_length prop_length56,57
+prop_length prop_length57,58
+prop_read prop_read59,60
+prop_read prop_read60,61
+square square63,64
+square square64,65
+squareIdentity squareIdentity66,67
+squareIdentity squareIdentity67,68
+prop_squareIdentity prop_squareIdentity69,70
+twice twice71,72
+fourTimes fourTimes72,73
+capitalizeWords capitalizeWords74,75
+prop_idempotence prop_idempotence76,77
+prop_idempotence prop_idempotence77,78
+main main80,81
+main main81,82
+
+./morse/.stack-work/dist/x86_64-osx/Cabal-1.22.5.0/build/autogen/Paths_morse.hs,960
+module Paths_morse Paths_morse0,1
+catchIO catchIO11,12
+catchIO catchIO12,13
+version version14,15
+version version15,16
+bindir, libdir, datadir, libexecdir, sysconfdir sysconfdir16,17
+bindir, libdir, datadir, libexecdir,libexecdir16,17
+bindir, libdir, datadir,datadir16,17
+bindir, libdir,libdir16,17
+bindir,bindir16,17
+bindir bindir18,19
+libdir libdir19,20
+datadir datadir20,21
+libexecdir libexecdir21,22
+sysconfdir sysconfdir22,23
+getBinDir, getLibDir, getDataDir, getLibexecDir, getSysconfDir getSysconfDir24,25
+getBinDir, getLibDir, getDataDir, getLibexecDir,getLibexecDir24,25
+getBinDir, getLibDir, getDataDir,getDataDir24,25
+getBinDir, getLibDir,getLibDir24,25
+getBinDir,getBinDir24,25
+getBinDir getBinDir25,26
+getLibDir getLibDir26,27
+getDataDir getDataDir27,28
+getLibexecDir getLibexecDir28,29
+getSysconfDir getSysconfDir29,30
+getDataFileName getDataFileName31,32
+getDataFileName getDataFileName32,33
+
+./morse/Setup.hs,15
+main main1,2
+
+./morse/src/Main.hs,211
+module Main Main0,1
+convertToMorse convertToMorse9,10
+convertToMorse convertToMorse10,11
+convertFromMorse convertFromMorse25,26
+convertFromMorse convertFromMorse26,27
+main main42,43
+main main43,44
+
+./morse/src/Morse.hs,358
+type Morse Morse11,12
+letterToMorse letterToMorse13,14
+letterToMorse letterToMorse14,15
+morseToLetter morseToLetter53,54
+morseToLetter morseToLetter54,55
+charToMorse charToMorse56,57
+charToMorse charToMorse57,58
+stringToMorse stringToMorse59,60
+stringToMorse stringToMorse60,61
+morseToChar morseToChar62,63
+morseToChar morseToChar63,64
+
+./morse/tests/tests.hs,383
+module Main Main0,1
+allowedChars allowedChars5,6
+allowedChars allowedChars6,7
+allowedMorse allowedMorse8,9
+allowedMorse allowedMorse9,10
+charGen charGen11,12
+charGen charGen12,13
+morseGen morseGen14,15
+morseGen morseGen15,16
+prop_thereAndBackAgain prop_thereAndBackAgain17,18
+prop_thereAndBackAgain prop_thereAndBackAgain18,19
+main main22,23
+main main23,24
+
+./wordnumber/.stack-work/dist/x86_64-osx/Cabal-1.22.5.0/build/autogen/Paths_WordNumber.hs,970
+module Paths_WordNumber Paths_WordNumber0,1
+catchIO catchIO11,12
+catchIO catchIO12,13
+version version14,15
+version version15,16
+bindir, libdir, datadir, libexecdir, sysconfdir sysconfdir16,17
+bindir, libdir, datadir, libexecdir,libexecdir16,17
+bindir, libdir, datadir,datadir16,17
+bindir, libdir,libdir16,17
+bindir,bindir16,17
+bindir bindir18,19
+libdir libdir19,20
+datadir datadir20,21
+libexecdir libexecdir21,22
+sysconfdir sysconfdir22,23
+getBinDir, getLibDir, getDataDir, getLibexecDir, getSysconfDir getSysconfDir24,25
+getBinDir, getLibDir, getDataDir, getLibexecDir,getLibexecDir24,25
+getBinDir, getLibDir, getDataDir,getDataDir24,25
+getBinDir, getLibDir,getLibDir24,25
+getBinDir,getBinDir24,25
+getBinDir getBinDir25,26
+getLibDir getLibDir26,27
+getDataDir getDataDir27,28
+getLibexecDir getLibexecDir28,29
+getSysconfDir getSysconfDir29,30
+getDataFileName getDataFileName31,32
+getDataFileName getDataFileName32,33
+
+./wordnumber/WordNumber.hs,192
+module WordNumber WordNumber0,1
+digitToWord digitToWord4,5
+digitToWord digitToWord5,6
+digits digits18,19
+digits digits19,20
+wordNumber wordNumber26,27
+wordNumber wordNumber27,28
+
+./wordnumber/WordNumberTest.hs,72
+module WordNumberTest WordNumberTest0,1
+main main5,6
+main main6,7
