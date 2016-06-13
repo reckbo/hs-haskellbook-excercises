@@ -73,7 +73,7 @@ instance Arbitrary BoolConj where
 
 type BoolConjAssoc = BoolConj -> BoolConj -> BoolConj -> Bool
 
--- 8. Or 
+-- 8. Or
 
 data Or a b = Fst a | Snd b deriving (Show, Eq)
 
@@ -88,8 +88,21 @@ instance (Arbitrary a, Arbitrary b) => Arbitrary (Or a b) where
     a <- arbitrary
     b <- arbitrary
     elements [Fst a, Snd b]
-  
+
 type OrAssoc = (Or Int String) -> (Or Int String) -> (Or Int String) -> Bool
+
+-- 9. Combine
+
+newtype Combine a b = Combine { unCombine :: (a -> b) }
+
+instance (Semigroup b) => Semigroup (Combine a b) where
+  f <> g = Combine h where
+              h x = (unCombine f) x <> (unCombine g) x
+
+-- instance Arbitrary (Combine Int Sum) where
+--   arbitrary = do
+--     a <- arbitrary
+--     return  $ Combine
 
 main :: IO ()
 main =
