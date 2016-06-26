@@ -1,4 +1,4 @@
-{-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE FlexibleInstances #-}
 import           Data.Monoid
 import           Test.QuickCheck
@@ -162,7 +162,42 @@ instance (Applicative n, Arbitrary a) => Arbitrary (S n a) where
 instance (Eq a, Eq (n a)) => EqProp (S n a) where
   (=-=) = eq
 
-type TI = S Maybe
+
+data Tree a = Empty | Leaf a | Node (Tree a) a (Tree a)
+  deriving (Eq, Show)
+
+instance Functor Tree where
+  fmap _ Empty = Empty
+  fmap f (Leaf a) = Leaf $ f a
+  fmap f (Node l k r) = Node (fmap f l) (f k) (fmap f r)
+
+instance Foldable Tree where
+  foldMap f Empty = mempty
+  foldMap f (Leaf a) = f a
+  foldMap f (Node l k r) = foldMap f l <> f k <> foldMap f r
+
+instance Traversable Tree where
+  traverse f Empty = pure Empty
+  traverse f (Leaf a) = Leaf <$> f a
+  traverse f (Node l k r) = Node <$> (traverse f l) <*> f k <*> (traverse f r)
+
+instance Arbitrary a => Arbitrary (Tree a) where
+  arbitrary = do
+    l <- arbitrary
+    k <- arbitrary
+    r <- arbitrary
+    elements [Empty,
+              Leaf k,
+              Node Empty k Empty,
+              Node (Leaf l) k (Leaf r),
+              Node Empty r (Leaf l),
+              Node (Leaf l) r Empty
+             ]
+
+instance (Eq a) => EqProp (Tree a) where
+  (=-=) = eq
+
+type TI = Tree
 
 main :: IO ()
 main = do
