@@ -29,3 +29,24 @@ eitherT f g (EitherT mab) = do
   case eab of
     (Left x) -> f x
     (Right x) -> g x
+
+newtype StateT s m a = StateT { runStateT :: s -> m (a,s) }
+
+instance (Functor m) => Functor (StateT s m) where
+  fmap f m = StateT $ \s -> fmap f' $ (runStateT m) s
+                            where f' (a,s) = (f a, s)
+
+instance (Monad m) => Applicative (StateT s m) where
+  pure a = StateT $ \s -> return (a,s)
+  xf <*> y = StateT $ \s -> let mf = runStateT xf $ s
+                                ma = runStateT y $ s
+                            in mf >>= \(f,_) ->
+                                        ma >>= \(a,s') ->
+                                                 return (f a, s')
+
+instance (Monad m) => Monad (StateT s m) where
+  return = pure
+  sma >>= f = StateT $ \s -> do
+    (a, _) <- runStateT sma s
+    runStateT (f a) $ s
+
