@@ -2,10 +2,11 @@
 {-# LANGUAGE QuasiQuotes       #-}
 
 import           Data.ByteString   (ByteString)
-import           Data.Time
+import           Data.Time (fromGregorianValid, Day)
 import           Text.RawString.QQ
 import           Text.Trifecta
-import Data.Map
+import           Data.Map            (Map)
+import qualified Data.Map            as M
 import Control.Applicative
 
 testData :: ByteString
@@ -41,18 +42,15 @@ testData = [r|
 type Time = (Int,Int)
 data LogEntry = LogEntry Time String
   deriving Show
-data Log = Map Day [LogEntry]
-
-skipEOL :: Parser ()
-skipEOL = skipMany (char '\n')
+data DayLog = DayLog Day [LogEntry]
+newtype Log = Log (Map Day [LogEntry])
+  deriving Show
 
 skipWhitespace :: Parser ()
-skipWhitespace = skipMany (char ' ' <|> char '\n')
+skipWhitespace = skipMany (char ' ' <|> newline)
 
 skipComments :: Parser ()
-skipComments = skipMany (do _ <- string "--"
-                            skipMany (noneOf "\n")
-                            skipEOL)
+skipComments = skipMany (comment >> skipWhitespace)
 
 parseDate :: Parser (Maybe Day)
 parseDate = do
@@ -80,8 +78,13 @@ parseTime' = do
                | min > 59 || min < 0 = Nothing
                | otherwise = Just (fromIntegral hr, fromIntegral min)
 
+comment :: Parser String
+comment = do
+  string "--"
+  manyTill anyChar newline
+
 parseLogMsg :: Parser String
-parseLogMsg = manyTill (noneOf "\n") (try (string "--"))
+parseLogMsg = manyTill anyChar (comment <|> string "\n")
 
 parseLogEntry :: Parser (Maybe LogEntry)
 parseLogEntry = do
@@ -89,4 +92,23 @@ parseLogEntry = do
   skipMany (char ' ')
   log <- parseLogMsg
   return $ LogEntry <$> time <*> (Just log)
+
+parseDay :: Parser (Maybe DayLog)
+parseDay = do
+  skipWhitespace
+  skipComments
+  day <- parseDateLine
+  entries <- some parseLogEntry
+  return $ DayLog <$> day <*> (sequenceA entries)
+
+rollup :: DayLog
+        -> Map Day [LogEntry]
+        -> Map Day [LogEntry]
+rollup (DayLog day entries) m = M.insert day entries m
+
+parseLog :: Parser (Maybe Log)
+parseLog = do
+  days <- some parseDay
+  let logmap = fmap (foldr rollup M.empty) $ sequenceA days
+  return $ Log <$> logmap
 
